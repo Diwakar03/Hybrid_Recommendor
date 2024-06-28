@@ -1,28 +1,16 @@
 import streamlit as st
 import pandas as pd
 import re
-import nltk
 import pickle
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 from sklearn.metrics.pairwise import cosine_similarity
-
-# Ensure NLTK resources are downloaded
-nltk.download('stopwords')
-nltk.download('wordnet')
-
-# Initialize the lemmatizer and stop words
-lemmatizer = WordNetLemmatizer()
-stop_words = set(stopwords.words('english'))
 
 # Text preprocessing function
 def preprocess_text(text):
     if isinstance(text, str):
         text = text.lower()
-        text = re.sub(r'[^a-zA-Z0-9\s|]', '', text)
-        text = ' '.join(
-            lemmatizer.lemmatize(word) for word in text.split() if word not in stop_words
-        )
+        text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+        text = ' '.join(word for word in text.split() if word not in ENGLISH_STOP_WORDS)
     else:
         text = ''
     return text
