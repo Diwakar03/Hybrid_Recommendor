@@ -18,4 +18,4 @@ This is a hybrid recommendation system that suggests movies or TV shows based on
 3. Cosine Similarity: The similarity between the input text and the available content is calculated using cosine similarity.
 4. Recommendations: The system returns the top `k` most similar movies or TV shows based on the input text.
 
-The details of the deployment of application is on the root directory.
+The details of the deployment of application is on the master branch.
