@@ -17,5 +17,3 @@ This is a hybrid recommendation system that suggests movies or TV shows based on
 2.CBOW Vectorization: The preprocessed text is transformed using the Continuous Bag of Words approach.
 3. Cosine Similarity: The similarity between the input text and the available content is calculated using cosine similarity.
 4. Recommendations: The system returns the top `k` most similar movies or TV shows based on the input text.
-
-The details of the deployment is on the root directory.
