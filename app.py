@@ -25,8 +25,11 @@ with open('bow_matrix.pkl', 'rb') as f:
 with open('merged_df.pkl', 'rb') as f:
     merged_df = pickle.load(f)
 
+# Remove columns that don't have '|' in their row names
+filtered_merged_df = merged_df[merged_df.index.str.contains(r'\|')]
+
 # Function to recommend similar movies based on input text
-def recommend_similar(input_text, merged_df=merged_df, bow_matrix=bow_matrix, k=7):
+def recommend_similar(input_text, merged_df=filtered_merged_df, bow_matrix=bow_matrix, k=7):
     processed_input = preprocess_text(input_text)
     input_vec = vectorizer.transform([processed_input])
     cosine_similarities = cosine_similarity(input_vec, bow_matrix)
