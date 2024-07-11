@@ -37,7 +37,7 @@ def recommend_similar(input_text, merged_df=merged_df, bow_matrix=bow_matrix, k=
 # Streamlit app
 st.title('Hybrid Entertainment Recommendor System')
 
-input_text = st.text_input('Enter a description or title of the Movie/TV Show/Anime:', 'Enter title or description')
+input_text = st.text_input('#', 'Enter title or description')
 
 if st.button('Recommend'):
     recommendations = recommend_similar(input_text)
